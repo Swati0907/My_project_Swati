@@ -7,12 +7,12 @@ jsonFilePath = r'/home/myshubhlife/Downloads/osv_with_aggregator_id.json'
 
 def make_json(csvFilePath, jsonFilePath):
     data = {}
-    with open(csvFilePath, encoding='utf-8') as f:
+    with open(csvFilePath, 'r') as f:
         csvReader = csv.DictReader(f)
         for rows in csvReader:
             key = rows['empId']
             data[key] = rows
-    with open(jsonFilePath, 'w', encoding='utf-8') as jsonf:
+    with open(jsonFilePath, 'w') as jsonf:
         jsonf.write(json.dumps(data, indent=4))
 
 
